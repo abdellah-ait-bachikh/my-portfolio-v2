@@ -12,10 +12,9 @@ const Home = () => {
         Welcome to My Portfolio
       </h1>
       <p className="max-w-2xl text-lg md:text-xl mb-6 opacity-90 ">
-        I'm a passionate developer creating modern and interactive web
-        experiences. Let's build something amazing together!
+        Let's build something amazing together!
       </p>
-      <WelcomeBtn/>
+      <WelcomeBtn />
     </section>
   );
 };

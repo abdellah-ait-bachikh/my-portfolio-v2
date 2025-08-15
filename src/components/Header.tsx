@@ -22,7 +22,7 @@ const Header = () => {
           <Link
             key={index}
             href={item.href}
-            className=" px-2 py-1 font-semibold w-[75px] flex items-center justify-center z-[9998]"
+            className=" px-2 py-1 font-semibold w-[75px] flex items-center justify-center z-[9998] text-black"
             onClick={(e) => {
               e.preventDefault();
 
