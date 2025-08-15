@@ -25,9 +25,10 @@ const Header = () => {
             className=" px-2 py-1 font-semibold w-[75px] flex items-center justify-center z-[9998]"
             onClick={(e) => {
               e.preventDefault();
+              
               document
                 .querySelector(item.href)
-                ?.scrollIntoView();
+                ?.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest" });
               setActiveLink(item.href);
             }}
           >

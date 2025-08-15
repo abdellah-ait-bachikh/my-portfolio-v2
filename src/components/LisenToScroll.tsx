@@ -8,11 +8,12 @@ import Link from "next/link";
 const LisenToScroll = () => {
   const { setActiveLink } = useContext(ActiveLinkContext);
   const lastSection = useRef<string | undefined>(undefined);
+  const scrollTimeout = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const sectionIds = ["home", "about", "skills", "projects", "contact"];
 
-    const handleScroll = () => {
+    const detectSection = () => {
       let currentSection: string | undefined;
 
       sectionIds.forEach((id) => {
@@ -39,13 +40,25 @@ const LisenToScroll = () => {
       }
     };
 
+    const handleScroll = () => {
+      // Clear previous timeout
+      if (scrollTimeout.current) {
+        clearTimeout(scrollTimeout.current);
+      }
+      // Run detectSection 300ms after scrolling stops
+      scrollTimeout.current = setTimeout(detectSection, 100);
+    };
+
     window.addEventListener("scroll", handleScroll, { passive: true });
 
-    // Run on mount
-    handleScroll();
+    // Run once on mount
+    detectSection();
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      if (scrollTimeout.current) {
+        clearTimeout(scrollTimeout.current);
+      }
     };
   }, [setActiveLink]);
 
@@ -63,7 +76,11 @@ const LisenToScroll = () => {
             e.preventDefault();
             document
               .querySelector("#home")
-              ?.scrollIntoView();
+              ?.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+                inline: "nearest",
+              });
             setActiveLink(undefined);
             window.history.replaceState(null, "", "#home");
           }}
