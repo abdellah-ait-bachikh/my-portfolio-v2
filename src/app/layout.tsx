@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Rubik } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ActiveLinkContextProvider } from "@/context/ActiveLink";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const RubikSans = Rubik({
+  variable: "--font-rubik-sans",
   subsets: ["latin"],
 });
 
@@ -29,7 +29,7 @@ export default function RootLayout({
     <ActiveLinkContextProvider>
       <html lang="en">
         <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-t from-pink-200 via-red-100 to-amber-100 bg-fixed`}
+          className={`${RubikSans.variable} antialiased bg-gradient-to-t from-pink-100 via-red-100 to-amber-100 bg-fixed`}
         >
           <Header />
           <main className="">{children}</main>

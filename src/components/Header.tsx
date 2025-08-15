@@ -16,7 +16,7 @@ const Header = () => {
             "--translate-before": `${translateBefore}px`,
           } as React.CSSProperties
         }
-        className={`bg-white/30 backdrop-blur-md rounded-2xl px-2 py-1.5 flex items-center  relative overflow-hidden before:content-[''] before:absolute before:left-2 before:bg-white before:rounded-xl before:w-[75px] before:h-[32px] before:translate-x-[var(--translate-before)] before:transition-transform before:duration-300 before:ease-in-out`}
+        className={`bg-transparent backdrop-blur-sm border-2 border-white rounded-2xl px-2 py-1.5 flex items-center  relative overflow-hidden before:content-[''] before:absolute before:left-2 before:bg-white before:rounded-xl before:w-[75px] before:h-[32px] before:translate-x-[var(--translate-before)] before:transition-transform before:duration-300 before:ease-in-out`}
       >
         {links.map((item, index) => (
           <Link
@@ -25,10 +25,14 @@ const Header = () => {
             className=" px-2 py-1 font-semibold w-[75px] flex items-center justify-center z-[9998]"
             onClick={(e) => {
               e.preventDefault();
-              
+
               document
                 .querySelector(item.href)
-                ?.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest" });
+                ?.scrollIntoView({
+                  behavior: "smooth",
+                  block: "start",
+                  inline: "nearest",
+                });
               setActiveLink(item.href);
             }}
           >
