@@ -10,7 +10,6 @@ const About = () => {
       id="about"
       className="min-h-[calc(100vh-100px)] flex flex-col md:flex-row items-center justify-center gap-12 px-6 py-16"
     >
-      {/* Left - Image */}
       <div className="flex-1 flex justify-center">
         <Image
           src="/1730114339838.png"
@@ -21,7 +20,6 @@ const About = () => {
         />
       </div>
 
-      {/* Right - Text */}
       <div className="flex-1 text-center md:text-left flex flex-col justify-center">
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
           About Me
@@ -35,7 +33,6 @@ const About = () => {
           desktop.
         </p>
 
-        {/* Skills */}
         <div className="flex flex-wrap gap-3 justify-center md:justify-start">
           {[
             "Front-End Development",

@@ -32,7 +32,7 @@ export default function RootLayout({
           className={`${RubikSans.variable} antialiased bg-gradient-to-t from-pink-100 via-red-100 to-amber-100 bg-fixed`}
         >
           <Header />
-          <main className="">{children}</main>
+          <main >{children}</main>
           <Footer />
         </body>
       </html>
